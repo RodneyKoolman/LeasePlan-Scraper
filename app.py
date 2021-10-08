@@ -9,12 +9,11 @@ from sendgrid.helpers.mail import Mail
 leaseplan_brand = 'tesla'
 leaseplan_mileage = 10000
 leaseplan_duration = 60
-leaseplan_type = 'volledig%20elektrisch'
 leaseplan_model = 'model-3'
 scraper_processed_cars = []
 scraper_follow_cars = False
 scraper_mail_enabled = True
-scraper_webservice_enabled = False
+scraper_webservice_enabled = True
 scraper_check_every = 60
 scraper_mail_from = settings.your_from_mail
 scraper_mail_to = settings.your_to_mail
@@ -22,7 +21,7 @@ scraper_sendgrid_apikey = settings.your_api_key
 scraper_webservice_host = '0.0.0.0'
 scraper_webservice_port = 80
 scraper_domain = 'https://www.leaseplan.com'
-scraper_start_url = 'https://www.leaseplan.com/nl-nl/zakelijk-leasen/showroom/{}/?leaseOption[mileage]={}&leaseOption[contractDuration]={}&popularFilters=b3eb0313-9583-427d-9db2-782f29f83afb&fuelTypes={}&makemodel={}'.format(leaseplan_brand, leaseplan_mileage, leaseplan_duration, leaseplan_type, leaseplan_model)
+scraper_start_url = 'https://www.leaseplan.com/nl-nl/zakelijk-leasen/showroom/{}/?leaseOption[mileage]={}&leaseOption[contractDuration]={}&popularFilters=b3eb0313-9583-427d-9db2-782f29f83afb&makemodel={}'.format(leaseplan_brand, leaseplan_mileage, leaseplan_duration, leaseplan_model)
 scraper_last_run = 'never'
 scraper_last_error = 'never'
 scraper_last_new_car = 'none'
@@ -37,7 +36,7 @@ def webserver_start():
 
 @scraper_webserver.route('/')
 def webserver_content():
-    return '<h1>LeasePlan Scraper</h1> </br></br><b>Status:</b></br> Scraper last run: {}</br> Scraper last error: {}</br></br>Scraper run counter: {}</br>Scraper error counter: {}</br></br>Scraper processed cars: {}</br>Scraper mails send: {}</br></br>Scraper is currently looking for <b>{} {}</b> with <b>{}</b> km and a duration of <b>{}</b>.</br></br>Last new car: <a href={}>{}</a></br></br>Scraper checks every: {} seconds</br>Scraper curring time: {}'.format(scraper_last_run, scraper_last_error, scraper_run_count, scraper_error_count, scraper_processed_cars, scraper_mails_send, leaseplan_brand, leaseplan_model, leaseplan_mileage, leaseplan_duration, scraper_last_new_link, scraper_last_new_car, scraper_check_every, datetime.now())
+    return '<h1>LeasePlan Scraper</h1> </br></br><b>Status:</b></br> Scraper last run: {}</br> Scraper last error: {}</br></br>Scraper run counter: {}</br>Scraper error counter: {}</br></br>Scraper processed cars: {}</br>Scraper mails send: {}</br></br>Scraper is currently looking for <b>{} {}</b> with <b>{}</b> km and a duration of <b>{}</b> months.</br></br>Last new car: <a href={}>{}</a></br></br>Scraper checks every: {} seconds</br>Scraper curring time: {}'.format(scraper_last_run, scraper_last_error, scraper_run_count, scraper_error_count, scraper_processed_cars, scraper_mails_send, leaseplan_brand, leaseplan_model, leaseplan_mileage, leaseplan_duration, scraper_last_new_link, scraper_last_new_car, scraper_check_every, datetime.now())
     
 def send_mail(current_car, current_car_link):
     global scraper_last_error, scraper_error_count, scraper_mails_send
