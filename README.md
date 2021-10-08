@@ -18,6 +18,9 @@ Follow car link and scrap details.
 This app uses SendGrid for mail notifications when cars become available. SendGrid can be used for free but you need to create an API key.
 Make sure to change the config.your_from_mail, config.your_to_mail and config.your_api_key to reflect your SendGrid settings.
 
+**scraper_webservice_enabled** = True (enables dashboard and statistics)
+**scraper_mail_enabled** = True (enables mail notifications)
+
 1. Adjust the script properties at the top
 2. Setup and Configure an Azure Web App (or your own hosting)
 3. Install the Azure Web App extensions for VSCode
