@@ -15,7 +15,7 @@ Follow car link and scrap details.
 
 ## Screenshot
 
-![demo](/demo/demo1.jpg)
+![demo](/demo/demo.gif)
 
 ## Usage
 
