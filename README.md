@@ -13,6 +13,10 @@ Written and optimized for Azure Web Apps but can be used standalone as well.
 **TODO**:
 Follow car link and scrap details.
 
+## Screenshot
+
+![demo](/demo/demo1.jpg)
+
 ## Usage
 
 This app uses SendGrid for mail notifications when cars become available. SendGrid can be used for free but you need to create an API key.
