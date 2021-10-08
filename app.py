@@ -36,7 +36,7 @@ def webserver_start():
 
 @scraper_webserver.route('/')
 def webserver_content():
-    return '<h1>LeasePlan Scraper</h1> </br></br><b>Status:</b></br> Scraper last run: {}</br> Scraper last error: {}</br></br>Scraper run counter: {}</br>Scraper error counter: {}</br></br>Scraper processed cars: {}</br>Scraper mails send: {}</br></br>Scraper is currently looking for <b>{} {}</b> with <b>{}</b> km and a duration of <b>{}</b> months.</br></br>Last new car: <a href={}>{}</a></br></br>Scraper checks every: {} seconds</br>Scraper curring time: {}'.format(scraper_last_run, scraper_last_error, scraper_run_count, scraper_error_count, scraper_processed_cars, scraper_mails_send, leaseplan_brand, leaseplan_model, leaseplan_mileage, leaseplan_duration, scraper_last_new_link, scraper_last_new_car, scraper_check_every, datetime.now())
+    return '<h1>LeasePlan Scraper</h1> </br></br><b>Status:</b></br> Scraper last run: {}</br> Scraper last error: {}</br></br>Scraper run counter: {}</br>Scraper error counter: {}</br></br>Scraper processed cars: {}</br>Scraper mails send: {}</br></br>Scraper is currently looking for <b>{} {}</b> with <b>{}</b> km and a duration of <b>{}</b> months.</br></br>Last new car: <a href={}>{}</a></br></br>Scraper checks every: {} seconds</br>Scraper current time: {}'.format(scraper_last_run, scraper_last_error, scraper_run_count, scraper_error_count, scraper_processed_cars, scraper_mails_send, leaseplan_brand, leaseplan_model, leaseplan_mileage, leaseplan_duration, scraper_last_new_link, scraper_last_new_car, scraper_check_every, datetime.now())
     
 def send_mail(current_car, current_car_link):
     global scraper_last_error, scraper_error_count, scraper_mails_send
