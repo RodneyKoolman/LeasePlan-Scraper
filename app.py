@@ -13,6 +13,8 @@ leaseplan_type = 'volledig%20elektrisch'
 leaseplan_model = 'model-3'
 scraper_processed_cars = []
 scraper_follow_cars = False
+scraper_mail_enabled = True
+scraper_webservice_enabled = False
 scraper_check_every = 60
 scraper_mail_from = settings.your_from_mail
 scraper_mail_to = settings.your_to_mail
@@ -35,7 +37,7 @@ def webserver_start():
 
 @scraper_webserver.route('/')
 def webserver_content():
-    return '<h1>LeasePlan Scraper</h1> </br></br><b>Status:</b></br> Scraper last run: {}</br> Scraper last error: {}</br></br>Scraper run counter: {}</br>Scraper error counter: {}</br></br>Scraper processed cars: {}</br>Scraper mails send: {}</br></br>Scraper is currently looking for <b>{} {}</b> with <b>{}</b> km and a duration of <b>{}</b>.</br></br>Last new car: {}</br>{}</br></br>Scraper checks every: {} seconds</br>Scraper curring time: {}'.format(scraper_last_run, scraper_last_error, scraper_run_count, scraper_error_count, scraper_processed_cars, scraper_mails_send, leaseplan_brand, leaseplan_model, leaseplan_mileage, leaseplan_duration, scraper_last_new_car, scraper_last_new_link, scraper_check_every, datetime.now())
+    return '<h1>LeasePlan Scraper</h1> </br></br><b>Status:</b></br> Scraper last run: {}</br> Scraper last error: {}</br></br>Scraper run counter: {}</br>Scraper error counter: {}</br></br>Scraper processed cars: {}</br>Scraper mails send: {}</br></br>Scraper is currently looking for <b>{} {}</b> with <b>{}</b> km and a duration of <b>{}</b>.</br></br>Last new car: <a href={}>{}</a></br></br>Scraper checks every: {} seconds</br>Scraper curring time: {}'.format(scraper_last_run, scraper_last_error, scraper_run_count, scraper_error_count, scraper_processed_cars, scraper_mails_send, leaseplan_brand, leaseplan_model, leaseplan_mileage, leaseplan_duration, scraper_last_new_link, scraper_last_new_car, scraper_check_every, datetime.now())
     
 def send_mail(current_car, current_car_link):
     global scraper_last_error, scraper_error_count, scraper_mails_send
@@ -65,7 +67,7 @@ def parse(page):
     return parsed_page
 
 def main():
-    global scraper_run_count, scraper_last_run, scraper_last_error, scraper_error_count
+    global scraper_run_count, scraper_last_run, scraper_last_error, scraper_error_count, scraper_last_new_car, scraper_last_new_link
 
     while True:
         try:
@@ -77,17 +79,19 @@ def main():
                 current_car_link = car.find("a")['data-e2e-id']
 
                 if current_car not in scraper_processed_cars:                    
+                    
                     #Experimental - Not functional yet, set scraper_follow_cars to false
                     if(scraper_follow_cars):
                         page = parse(scraper_domain + current_car_link)
                         specifications = page.find_all('div', {'data-component':'Specification'})
                         print(specifications)
 
-                    
-                    send_mail(current_car, current_car_link)
+                    if(scraper_mail_enabled):
+                        send_mail(current_car, current_car_link)
+
                     scraper_processed_cars.append(current_car)
                     scraper_last_new_car = current_car
-                    scraper_last_new_link = current_car_link
+                    scraper_last_new_link = scraper_domain+current_car_link
                     time.sleep(5)
 
             scraper_run_count += 1
@@ -108,7 +112,8 @@ def main():
 
 if __name__ == "__main__":
     try:
-        Thread(target=webserver_start).start()
+        if(scraper_webservice_enabled):
+            Thread(target=webserver_start).start()
         main()
     except Exception as e:
         print('Unexpected error {}. Application cannot start.'.format(e))
