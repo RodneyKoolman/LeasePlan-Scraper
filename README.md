@@ -11,7 +11,7 @@ Written and optimized for Azure Web Apps but can be used standalone as well.
 - **Note:** currently it uses a Dutch url-format which you need to change if you are from another country
 
 **TODO**:
-Webservice frontend to see the current status of your scraper.
+Follow car link and scrap details.
 
 ## Usage
 
