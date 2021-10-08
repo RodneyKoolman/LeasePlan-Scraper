@@ -17,21 +17,25 @@ scraper_check_every = 60
 scraper_mail_from = settings.your_from_mail
 scraper_mail_to = settings.your_to_mail
 scraper_sendgrid_apikey = settings.your_api_key
+scraper_webservice_host = '0.0.0.0'
+scraper_webservice_port = 80
 scraper_domain = 'https://www.leaseplan.com'
 scraper_start_url = 'https://www.leaseplan.com/nl-nl/zakelijk-leasen/showroom/{}/?leaseOption[mileage]={}&leaseOption[contractDuration]={}&popularFilters=b3eb0313-9583-427d-9db2-782f29f83afb&fuelTypes={}&makemodel={}'.format(leaseplan_brand, leaseplan_mileage, leaseplan_duration, leaseplan_type, leaseplan_model)
 scraper_last_run = 'never'
 scraper_last_error = 'never'
+scraper_last_new_car = 'none'
+scraper_last_new_link = 'none'
 scraper_run_count = 0
 scraper_error_count = 0
 scraper_mails_send = 0
 scraper_webserver = Flask(__name__)
 
 def webserver_start():
-     scraper_webserver.run(host='0.0.0.0', port=80, debug=False, use_reloader=False)
+     scraper_webserver.run(host=scraper_webservice_host, port=scraper_webservice_port, debug=False, use_reloader=False)
 
 @scraper_webserver.route('/')
 def webserver_content():
-    return '<h1>LeasePlan Scraper</h1> </br></br><b>Status:</b></br> Scraper last run: {}</br> Scraper last error: {}</br></br>Scraper run counter: {}</br>Scraper error counter: {}</br></br>Scraper processed cars: {}</br>Scraper mails send: {}'.format(scraper_last_run, scraper_last_error, scraper_run_count, scraper_error_count, scraper_processed_cars, scraper_mails_send)
+    return '<h1>LeasePlan Scraper</h1> </br></br><b>Status:</b></br> Scraper last run: {}</br> Scraper last error: {}</br></br>Scraper run counter: {}</br>Scraper error counter: {}</br></br>Scraper processed cars: {}</br>Scraper mails send: {}</br></br>Scraper is currently looking for <b>{} {}</b> with <b>{}</b> km and a duration of <b>{}</b>.</br></br>Last new car: {}</br>{}</br></br>Scraper checks every: {} seconds</br>Scraper curring time: {}'.format(scraper_last_run, scraper_last_error, scraper_run_count, scraper_error_count, scraper_processed_cars, scraper_mails_send, leaseplan_brand, leaseplan_model, leaseplan_mileage, leaseplan_duration, scraper_last_new_car, scraper_last_new_link, scraper_check_every, datetime.now())
     
 def send_mail(current_car, current_car_link):
     global scraper_last_error, scraper_error_count, scraper_mails_send
@@ -72,16 +76,18 @@ def main():
                 current_car = car['data-key']
                 current_car_link = car.find("a")['data-e2e-id']
 
-                if current_car not in scraper_processed_cars:
-                    
+                if current_car not in scraper_processed_cars:                    
                     #Experimental - Not functional yet, set scraper_follow_cars to false
                     if(scraper_follow_cars):
                         page = parse(scraper_domain + current_car_link)
                         specifications = page.find_all('div', {'data-component':'Specification'})
                         print(specifications)
 
+                    
                     send_mail(current_car, current_car_link)
                     scraper_processed_cars.append(current_car)
+                    scraper_last_new_car = current_car
+                    scraper_last_new_link = current_car_link
                     time.sleep(5)
 
             scraper_run_count += 1
