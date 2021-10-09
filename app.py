@@ -37,7 +37,7 @@ def webserver_start():
 
 @scraper_webserver.route('/')
 def index():
-    return render_template('index.html', lastrun=scraper_last_run, lasterror=scraper_last_error, runcounter=scraper_run_count, errorcounter=scraper_error_count, vehiclesinmemory=len(scraper_processed_cars) , lastaddedvehicle=scraper_last_new_car, mailssent=scraper_mails_send, checkevery=scraper_check_every, servertime=datetime.now(), lastaddedvehiclelink=scraper_last_new_link, vehiclebrand=leaseplan_brand, vehiclemodel=leaseplan_model, vehicleduration=leaseplan_duration, vehiclemileage=leaseplan_mileage, mailenabled=scraper_mail_enabled)
+    return render_template('index.html', lastrun=scraper_last_run, lasterror=scraper_last_error, runcounter=scraper_run_count, errorcounter=scraper_error_count, vehiclesinmemory=len(scraper_processed_cars) , lastaddedvehicle=scraper_last_new_car, mailssent=scraper_mails_send, checkevery=scraper_check_every, servertime=datetime.now().strftime('%H:%M:%S'), lastaddedvehiclelink=scraper_last_new_link, vehiclebrand=leaseplan_brand, vehiclemodel=leaseplan_model, vehicleduration=leaseplan_duration, vehiclemileage=leaseplan_mileage, mailenabled=scraper_mail_enabled)
     
 def send_mail(current_car, current_car_link):
     global scraper_last_error, scraper_error_count, scraper_mails_send
