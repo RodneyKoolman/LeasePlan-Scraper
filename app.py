@@ -45,7 +45,7 @@ def send_mail(current_car, current_car_link):
     from_email=scraper_mail_from,
     to_emails=scraper_mail_to,
     subject='New {} available with id {}'.format(leaseplan_brand, current_car),
-    html_content='New <strong>{}</strong> available with id <strong>{}</strong>. {}'.format(leaseplan_brand, current_car, current_car_link))
+    html_content='New <strong>{}</strong> available with id <a href={}><strong>{}</strong></a>.'.format(leaseplan_brand, scraper_domain+current_car_link, current_car))
 
     try:
         sendgrid = SendGridAPIClient(scraper_sendgrid_apikey)
