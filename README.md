@@ -15,6 +15,7 @@ It has a webservice where you can check the status of the scraper and it can als
 - Follow car link and scrape car details
 - Remove hardcoded dutch url parts
 - Better style the dashboard webservice
+- Support https/certificate for Flask
 
 ## Demo
 
