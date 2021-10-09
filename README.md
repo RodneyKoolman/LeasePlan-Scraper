@@ -9,6 +9,8 @@ It has a webservice where you can check the status of the scraper and it can als
 - Ignores already processed cars
 - Robust Exception-Handling
 - Web dashboard with statistics
+- Mail notifications are disabled on first run 
+(change scraper_first_run if you don't want this behavior)
 - **Note:** currently it uses a Dutch url-format which you need to change if you are from another country
 
 **TODO**:
