@@ -11,7 +11,7 @@ It has a webservice where you can check the status of the scraper, it can also n
 - **Note:** currently it uses a Dutch url-format which you need to change if you are from another country
 
 **TODO**:
-- Follow car link and scrap car details
+- Follow car link and scrape car details
 - Style the dashboard webservice
 
 ## Demo
