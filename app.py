@@ -35,8 +35,8 @@ def webserver_start():
      scraper_webserver.run(host=scraper_webservice_host, port=scraper_webservice_port, debug=False, use_reloader=False)
 
 @scraper_webserver.route('/')
-def webserver_content():
-    return '<h1>LeasePlan Scraper</h1> </br></br><b>Status:</b></br> Scraper last run: {}</br> Scraper last error: {}</br></br>Scraper run counter: {}</br>Scraper error counter: {}</br></br>Scraper processed cars: {}</br>Scraper mails send: {}</br></br>Scraper is currently looking for <b>{} {}</b> with <b>{}</b> km and a duration of <b>{}</b> months.</br></br>Last new car: <a href={}>{}</a></br></br>Scraper checks every: {} seconds</br>Scraper current time: {}'.format(scraper_last_run, scraper_last_error, scraper_run_count, scraper_error_count, scraper_processed_cars, scraper_mails_send, leaseplan_brand, leaseplan_model, leaseplan_mileage, leaseplan_duration, scraper_last_new_link, scraper_last_new_car, scraper_check_every, datetime.now())
+def index():
+    return render_template('index.html', lastrun=scraper_last_run, lasterror=scraper_last_error, runcounter=scraper_run_count, errorcounter=scraper_error_count, vehiclesinmemory=len(scraper_processed_cars) , lastaddedvehicle=scraper_last_new_car, mailssent=scraper_mails_send, checkevery=scraper_check_every, servertime=datetime.now(), lastaddedvehiclelink=scraper_last_new_link, vehiclebrand=leaseplan_brand, vehiclemodel=leaseplan_model, vehicleduration=leaseplan_duration, vehiclemileage=leaseplan_mileage, mailenabled=scraper_mail_enabled)
     
 def send_mail(current_car, current_car_link):
     global scraper_last_error, scraper_error_count, scraper_mails_send

@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<title>LeasePlan Scraper</title>
+<meta name="description" content="LeasePlan Scraper">
+<meta name="keywords" content="LeasePlan Scraper">
+<meta http-equiv="refresh" content="10" >
+</head>
+<body>
+    <table border="0" style="width:979px">
+        <tbody>
+            <tr>
+                <td style="width:967px">
+                <h1><strong><span style="font-size:72px"><span style="font-family:Verdana,Geneva,sans-serif"><span style="color:#e67e22">LeasePlan </span><span style="color:#bdc3c7">Scraper</span></span></span></strong></h1>
+    
+                <p><span style="font-size:28px"><span style="font-family:Verdana,Geneva,sans-serif"><span style="color:#bdc3c7"><strong>Scraper</strong></span><span style="color:#e67e22"><strong> </strong></span>is currently looking for <span style="color:#bdc3c7"><strong>{{ vehiclebrand }} {{ vehiclemodel }}</strong></span>&nbsp;with&nbsp;<span style="color:#bdc3c7"><strong>{{ vehiclemileage }}</strong></span>&nbsp;km and a duration of&nbsp;<span style="color:#bdc3c7"><strong>{{ vehicleduration }}</strong></span> months.</span></span></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        
+    <table border="0" style="width:981px">
+        <tbody>
+            <tr>
+                <td style="width:342px"><span style="font-size:28px"><span style="color:#000000"><span style="font-family:Verdana,Geneva,sans-serif">Last run:</span></span></span></td>
+                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#bdc3c7"><span style="font-family:Verdana,Geneva,sans-serif">{{ lastrun }}</span></span></strong></span></td>
+            </tr>
+            <tr>
+                <td style="width:342px"><span style="font-size:28px"><span style="color:#000000"><span style="font-family:Verdana,Geneva,sans-serif">Last error:</span></span></span></td>
+                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#bdc3c7"><span style="font-family:Verdana,Geneva,sans-serif">{{ lasterror }}</span></span></strong></span></td>
+            </tr>
+            <tr>
+                <td style="width:342px"><span style="font-size:28px"><span style="color:#000000"><span style="font-family:Verdana,Geneva,sans-serif">Run counter:</span></span></span></td>
+                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#bdc3c7"><span style="font-family:Verdana,Geneva,sans-serif">{{ runcounter }}</span></span></strong></span></td>
+            </tr>
+            <tr>
+                <td style="width:342px"><span style="font-size:28px"><span style="color:#000000"><span style="font-family:Verdana,Geneva,sans-serif">Error counter:</span></span></span></td>
+                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#bdc3c7"><span style="font-family:Verdana,Geneva,sans-serif">{{ errorcounter }}</span></span></strong></span></td>
+            </tr>
+            <tr>
+                <td style="width:342px"><span style="font-size:28px"><span style="color:#000000"><span style="font-family:Verdana,Geneva,sans-serif">Vehicles in-memory:</span></span></span></td>
+                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#bdc3c7"><span style="font-family:Verdana,Geneva,sans-serif">{{ vehiclesinmemory }}</span></span></strong></span></td>
+            </tr>
+            <tr>
+                <td style="width:342px"><span style="font-size:28px"><span style="color:#000000"><span style="font-family:Verdana,Geneva,sans-serif">Last added car:</span></span></span></td>
+                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#bdc3c7"><span style="font-family:Verdana,Geneva,sans-serif"><a href={{ lastaddedvehiclelink }} target="_blank" style="color: #bdc3c7;">{{ lastaddedvehicle }}</a></span></span></strong></span></td>
+            </tr>
+            <tr>
+                <td style="width:342px"><span style="font-size:28px"><span style="color:#000000"><span style="font-family:Verdana,Geneva,sans-serif">Mail notifications:</span></span></span></td>
+                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#bdc3c7"><span style="font-family:Verdana,Geneva,sans-serif">{{ mailenabled }}</span></span></strong></span></td>
+            </tr>
+            <tr>
+                <td style="width:342px"><span style="font-size:28px"><span style="color:#000000"><span style="font-family:Verdana,Geneva,sans-serif">Mails sent:</span></span></span></td>
+                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#bdc3c7"><span style="font-family:Verdana,Geneva,sans-serif">{{ mailssent }}</span></span></strong></span></td>
+            </tr>
+            <tr>
+                <td style="width:342px"><span style="font-size:28px"><span style="color:#000000"><span style="font-family:Verdana,Geneva,sans-serif">Check every:</span></span></span></td>
+                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#bdc3c7"><span style="font-family:Verdana,Geneva,sans-serif">{{ checkevery }} seconds</span></span></strong></span></td>
+            </tr>
+            <tr>
+                <td style="width:342px"><span style="font-size:28px"><span style="color:#000000"><span style="font-family:Verdana,Geneva,sans-serif">Server time:</span></span></span></td>
+                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#bdc3c7"><span style="font-family:Verdana,Geneva,sans-serif">{{ servertime }}</span></span></strong></span></td>
+            </tr>
+            <tr>
+                <td style="width:342px">&nbsp;</td>
+                <td style="width:623px">&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <span style="font-size:16px"><span style="font-family:Verdana,Geneva,sans-serif"><em>This page auto-refreshes every 10 seconds</em></span></span></br>
+    <span style="font-size:16px"><span style="font-family:Verdana,Geneva,sans-serif"><strong><em><a href="https://github.com/RodneyKoolman/LeasePlan-Scraper" target="_blank">github.com/RodneyKoolman/LeasePlan-Scrape</a></em></strong></span></span>
+</body>
+</html>
