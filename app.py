@@ -55,7 +55,7 @@ def send_mail(current_car, current_car_link):
     except Exception as e:
         scraper_last_error = datetime.now().strftime('%H:%M:%S')
         scraper_error_count += 1
-        print('Error {}. Stopped parsing, retrying mail'.format(e))
+        print('Error {}. Retrying mail soon'.format(e))
         time.sleep(10)
         send_mail(current_car, current_car_link)
 
@@ -96,17 +96,17 @@ def main():
             scraper_run_count += 1
             scraper_last_run = datetime.now().strftime('%H:%M:%S')
 
-            print('Done parsing. Processed cars are {}'.format(scraper_processed_cars))
+            print('Done scraping. Processed vehicles are {}'.format(scraper_processed_cars))
 
         except Exception as e:
             scraper_error_count += 1
             scraper_last_error = datetime.now().strftime('%H:%M:%S')
             
-            print('Error {}. Stopped parsing, retrying loop'.format(e))
+            print('Error {}. Stopped scraping, retrying soon'.format(e))
             time.sleep(10)
             pass
 
-        print('Waiting {} seconds for next parse'.format(scraper_check_every))
+        print('Waiting {} seconds for next scrape'.format(scraper_check_every))
         time.sleep(scraper_check_every)
 
 if __name__ == "__main__":
@@ -115,4 +115,4 @@ if __name__ == "__main__":
             Thread(target=webserver_start).start()
         main()
     except Exception as e:
-        print('Unexpected error {}. Application cannot start.'.format(e))
+        print('Unexpected error {}. App cannot start.'.format(e))
