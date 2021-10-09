@@ -21,7 +21,7 @@ It has a webservice where you can check the status of the scraper, it can also n
 ## Usage
 
 This app uses SendGrid for mail notifications when cars become available. SendGrid can be used for free but you need to create an API key.
-Make sure to change the config.your_from_mail, config.your_to_mail and config.your_api_key to reflect your SendGrid settings.
+Make sure to change the settings.your_from_mail, settings.your_to_mail and settings.your_api_key to reflect your SendGrid settings.
 
 - **scraper_webservice_enabled** = True (enables dashboard and statistics)
 - **scraper_mail_enabled** = True (enables mail notifications)
