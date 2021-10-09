@@ -49,8 +49,8 @@ def send_mail(current_car, current_car_link):
     html_content='New <strong>{}</strong> available with id <a href={}><strong>{}</strong></a>.'.format(leaseplan_brand, scraper_domain+current_car_link, current_car))
 
     try:
-        #sendgrid = SendGridAPIClient(scraper_sendgrid_apikey)
-        #sendgrid.send(message)
+        sendgrid = SendGridAPIClient(scraper_sendgrid_apikey)
+        sendgrid.send(message)
         scraper_mails_send += 1
 
     except Exception as e:
