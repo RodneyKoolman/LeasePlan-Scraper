@@ -29,6 +29,7 @@ scraper_last_new_link = 'none'
 scraper_run_count = 0
 scraper_error_count = 0
 scraper_mails_send = 0
+scraper_first_run = True
 scraper_webserver = Flask(__name__)
 
 def webserver_start():
@@ -48,8 +49,8 @@ def send_mail(current_car, current_car_link):
     html_content='New <strong>{}</strong> available with id <a href={}><strong>{}</strong></a>.'.format(leaseplan_brand, scraper_domain+current_car_link, current_car))
 
     try:
-        sendgrid = SendGridAPIClient(scraper_sendgrid_apikey)
-        sendgrid.send(message)
+        #sendgrid = SendGridAPIClient(scraper_sendgrid_apikey)
+        #sendgrid.send(message)
         scraper_mails_send += 1
 
     except Exception as e:
@@ -66,7 +67,7 @@ def parse(page):
     return parsed_page
 
 def main():
-    global scraper_run_count, scraper_last_run, scraper_last_error, scraper_error_count, scraper_last_new_car, scraper_last_new_link
+    global scraper_run_count, scraper_last_run, scraper_last_error, scraper_error_count, scraper_last_new_car, scraper_last_new_link, scraper_first_run
 
     while True:
         try:
@@ -85,7 +86,7 @@ def main():
                         specifications = page.find_all('div', {'data-component':'Specification'})
                         print(specifications)
 
-                    if(scraper_mail_enabled):
+                    if(scraper_mail_enabled and not scraper_first_run):
                         send_mail(current_car, current_car_link)
 
                     scraper_processed_cars.append(current_car)
@@ -94,6 +95,7 @@ def main():
                     time.sleep(5)
 
             scraper_run_count += 1
+            scraper_first_run = False
             scraper_last_run = datetime.now().strftime('%H:%M:%S')
 
             print('Done scraping. Processed vehicles are {}'.format(scraper_processed_cars))
