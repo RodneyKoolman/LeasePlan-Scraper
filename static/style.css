@@ -1,0 +1,36 @@
+body {
+  background-color: #22272d;
+}
+
+a {
+  color: #afb9c3;
+}
+
+a:hover {
+  color: #5587dc;
+}
+
+#footer {
+  color: #afb9c3;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 11px;
+}
+
+#show {
+  color: #5587dc;
+}
+
+#table_top {
+  width: 979px;
+}
+
+#table_bottom {
+  width: 981px;
+}
+
+td {
+  color: #afb9c3;
+  width: 340px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 28px;
+}
