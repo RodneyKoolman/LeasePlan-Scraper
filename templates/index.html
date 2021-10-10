@@ -5,64 +5,64 @@
 <meta name="description" content="LeasePlan Scraper">
 <meta name="keywords" content="LeasePlan Scraper">
 <meta http-equiv="refresh" content="10" >
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
 </head>
-<body style="background-color:#22272d;">
-    <table border="0" style="width:979px">
+<body>
+    <table id="table_top">
         <tbody>
             <tr>
-                <td style="width:967px">
-                <h1><strong><span style="font-size:72px"><span style="font-family:Verdana,Geneva,sans-serif"><span style="color:#afb9c3">LeasePlan Scraper</span></strong></h1>
-                <p><span style="font-size:28px"><span style="font-family:Verdana,Geneva,sans-serif"><span style="color:#afb9c3"><span style="color:#5587dc"><strong>Scraper</strong></span> is currently looking for <span style="color:#5587dc"><strong>{{ vehiclebrand }} {{ vehiclemodel }}</strong></span> with <span style="color:#5587dc"><strong>{{ vehiclemileage }}</strong></span> km and a duration of <span style="color:#5587dc"><strong>{{ vehicleduration }}</strong></span> months</span></p>
+                <td>
+                <h1><span style="font-size:72px">LeasePlan Scraper</span></h1>
+                <p><span id="show"><strong>Scraper</strong></span> is currently looking for <span id="show"><strong>{{ vehiclebrand }} {{ vehiclemodel }}</strong></span> with <span id="show"><strong>{{ vehiclemileage }}</strong></span> km and a duration of <span id="show"><strong>{{ vehicleduration }}</strong></span> months</p>
                 </td>
             </tr>
         </tbody>
     </table>
-        
-    <table border="0" style="width:981px">
+    <table id="table_bottom">
         <tbody>
             <tr>
-                <td style="width:342px"><span style="font-size:28px"><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">Server time:</span></span></span></td>
-                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">{{ servertime }}</span></span></strong></span></td>
+                <td>Server time:</td>
+                <td>{{ servertime }}</td>
             </tr>
             <tr>
-                <td style="width:342px"><span style="font-size:28px"><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">Last run:</span></span></span></td>
-                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">{{ lastrun }}</span></span></strong></span></td>
+                <td>Last run:</td>
+                <td>{{ lastrun }}</td>
             </tr>
             <tr>
-                <td style="width:342px"><span style="font-size:28px"><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">Last error:</span></span></span></td>
-                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">{{ lasterror }}</span></span></strong></span></td>
+                <td>Last error:</td>
+                <td>{{ lasterror }}</td>
             </tr>
             <tr>
-                <td style="width:342px"><span style="font-size:28px"><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">Run counter:</span></span></span></td>
-                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">{{ runcounter }}</span></span></strong></span></td>
+                <td>Run counter:</td>
+                <td>{{ runcounter }}</td>
             </tr>
             <tr>
-                <td style="width:342px"><span style="font-size:28px"><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">Error counter:</span></span></span></td>
-                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">{{ errorcounter }}</span></span></strong></span></td>
+                <td>Error counter:</td>
+                <td>{{ errorcounter }}</td>
             </tr>
             <tr>
-                <td style="width:342px"><span style="font-size:28px"><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">Vehicles in-memory:</span></span></span></td>
-                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">{{ vehiclesinmemory }}</span></span></strong></span></td>
+                <td>Vehicles in-memory:</td>
+                <td>{{ vehiclesinmemory }}</td>
             </tr>
             <tr>
-                <td style="width:342px"><span style="font-size:28px"><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">Last added car:</span></span></span></td>
-                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif"><a href={{ lastaddedvehiclelink }} target="_blank" style="color: #bdc3c7;">{{ lastaddedvehicle }}</a></span></span></strong></span></td>
+                <td>Last added car:</td>
+                <td><a href={{ lastaddedvehiclelink }} target="_blank">{{ lastaddedvehicle }}</a></td>
             </tr>
             <tr>
-                <td style="width:342px"><span style="font-size:28px"><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">Mail notifications:</span></span></span></td>
-                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">{{ mailenabled }}</span></span></strong></span></td>
+                <td>Mail notifications:</td>
+                <td>{{ mailenabled }}</td>
             </tr>
             <tr>
-                <td style="width:342px"><span style="font-size:28px"><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">Mails sent:</span></span></span></td>
-                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">{{ mailssent }}</span></span></strong></span></td>
+                <td>Mails sent:</td>
+                <td>{{ mailssent }}</td>
             </tr>
             <tr>
-                <td style="width:342px"><span style="font-size:28px"><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">Check every:</span></span></span></td>
-                <td style="width:623px"><span style="font-size:28px"><strong><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif">{{ checkevery }} seconds</span></span></strong></span></td>
+                <td>Check every:</td>
+                <td>{{ checkevery }} seconds</td>
             </tr>
         </tbody>
     </table>
-    <p></p><span style="font-size:11px"><span style="color:#afb9c3"><span style="font-family:Verdana,Geneva,sans-serif"><em>This page auto-refreshes every 10 seconds</em></span></span></span></br>
-    <span style="font-size:11px"><span style="font-family:Verdana,Geneva,sans-serif"><strong><em><a href="https://github.com/RodneyKoolman/LeasePlan-Scraper" target="_blank" style="color:#afb9c3">github.com/RodneyKoolman/LeasePlan-Scraper</a></em></strong></span></span></span></p>
+    <p></p><span id="footer"><em>This page auto-refreshes every 10 seconds</em></span></br>
+    <span id="footer"><strong><em><a href="https://github.com/RodneyKoolman/LeasePlan-Scraper" target="_blank">github.com/RodneyKoolman/LeasePlan-Scraper</a></em></strong></span></p>
 </body>
 </html>
