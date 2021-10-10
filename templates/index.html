@@ -29,28 +29,20 @@
                 <td>{{ lastrun }}</td>
             </tr>
             <tr>
-                <td>Last error:</td>
-                <td>{{ lasterror }}</td>
-            </tr>
-            <tr>
-                <td>Run counter:</td>
+                <td>Run count:</td>
                 <td>{{ runcounter }}</td>
-            </tr>
-            <tr>
-                <td>Error counter:</td>
-                <td>{{ errorcounter }}</td>
             </tr>
             <tr>
                 <td>Vehicles in-memory:</td>
                 <td>{{ vehiclesinmemory }}</td>
             </tr>
             <tr>
-                <td>Last added car:</td>
+                <td>Last added vehicle:</td>
                 <td><a href={{ lastaddedvehiclelink }} target="_blank">{{ lastaddedvehicle }}</a></td>
             </tr>
             <tr>
                 <td>Mail notifications:</td>
-                <td>{{ mailenabled }}</td>
+                <td>{{ mailenabled }} and first run {{ firstrun }}</td>
             </tr>
             <tr>
                 <td>Mails sent:</td>
@@ -59,6 +51,18 @@
             <tr>
                 <td>Check every:</td>
                 <td>{{ checkevery }} seconds</td>
+            </tr>
+            <tr>
+                <td>Error count:</td>
+                <td>{{ errorcounter }}</td>
+            </tr>
+            <tr>
+                <td>Last error:</td>
+                <td>{{ lasterror }} with message: {{ errormessage }}</td>
+            </tr>
+            <tr>
+                <td>Last error message:</td>
+                <td>{{ errormessage }}</td>
             </tr>
         </tbody>
     </table>
