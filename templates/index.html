@@ -4,7 +4,7 @@
 <title>LeasePlan Scraper</title>
 <meta name="description" content="LeasePlan Scraper">
 <meta name="keywords" content="LeasePlan Scraper">
-<meta http-equiv="refresh" content="10" >
+<meta http-equiv="refresh" content="25" >
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
 </head>
 <body>
@@ -12,7 +12,7 @@
         <tbody>
             <tr>
                 <td>
-                <h1><span style="font-size:72px">LeasePlan Scraper</span></h1>
+                <h1><span id="header">LeasePlan Scraper</span></h1>
                 <p><span id="show"><strong>Scraper</strong></span> is currently looking for <span id="show"><strong>{{ vehiclebrand }} {{ vehiclemodel }}</strong></span> with <span id="show"><strong>{{ vehiclemileage }}</strong></span> km and a duration of <span id="show"><strong>{{ vehicleduration }}</strong></span> months</p>
                 </td>
             </tr>
@@ -21,56 +21,52 @@
     <table id="table_bottom">
         <tbody>
             <tr>
-                <td>Server time:</td>
-                <td>{{ servertime }}</td>
+                <td id="columnleft">Server time:</td>
+                <td id="columnright">{{ servertime }}</td>
             </tr>
             <tr>
-                <td>Last run:</td>
-                <td>{{ lastrun }}</td>
+                <td id="columnleft">Last run:</td>
+                <td id="columnright">{{ lastrun }}</td>
             </tr>
             <tr>
-                <td>Run count:</td>
-                <td>{{ runcounter }}</td>
+                <td id="columnleft">Run count:</td>
+                <td id="columnright">{{ runcounter }}</td>
             </tr>
             <tr>
-                <td>Vehicles in-memory:</td>
-                <td>{{ vehiclesinmemory }}</td>
+                <td id="columnleft">Vehicles in-memory:</td>
+                <td id="columnright">{{ vehiclesinmemory }}</td>
             </tr>
             <tr>
-                <td>Last added vehicle:</td>
-                <td><a href={{ lastaddedvehiclelink }} target="_blank">{{ lastaddedvehicle }}</a></td>
+                <td id="columnleft">Last added vehicle:</td>
+                <td id="columnright"><a href={{ lastaddedvehiclelink }} target="_blank">{{ lastaddedvehicle }}</a></td>
             </tr>
             <tr>
-                <td>First run:</td>
-                <td>{{ firstrun }}</td>
+                <td id="columnleft">First run:</td>
+                <td id="columnright">{{ firstrun }}</td>
             </tr>
             <tr>
-                <td>Mail notifications:</td>
-                <td>{{ mailenabled }}</td>
+                <td id="columnleft">Mail notifications:</td>
+                <td id="columnright">{{ mailenabled }}</td>
             </tr>
             <tr>
-                <td>Mails sent:</td>
-                <td>{{ mailssent }}</td>
+                <td id="columnleft">Mails sent:</td>
+                <td id="columnright">{{ mailssent }}</td>
             </tr>
             <tr>
-                <td>Check every:</td>
-                <td>{{ checkevery }} seconds</td>
+                <td id="columnleft">Check every:</td>
+                <td id="columnright">{{ checkevery }} seconds</td>
             </tr>
             <tr>
-                <td>Error count:</td>
-                <td>{{ errorcounter }}</td>
+                <td id="columnleft">Error count:</td>
+                <td id="columnright">{{ errorcounter }}</td>
             </tr>
             <tr>
-                <td>Last error:</td>
-                <td>{{ lasterror }}</td>
-            </tr>
-            <tr>
-                <td>Last error message:</td>
-                <td>{{ errormessage }}</td>
+                <td id="columnleft">Last error:</td>
+                <td id="columnright">{{ lasterror }} <p id="errormessage">{{ errormessage }} </br></br><a href="#">close error</a></p> <a href="#errormessage">show error</a></td>
             </tr>
         </tbody>
     </table>
-    <p></p><span id="footer"><em>This page auto-refreshes every 10 seconds</em></span></br>
+    <p></p><span id="footer"><em>This page auto-refreshes every 25 seconds</em></span></br>
     <span id="footer"><strong><em><a href="https://github.com/RodneyKoolman/LeasePlan-Scraper" target="_blank">github.com/RodneyKoolman/LeasePlan-Scraper</a></em></strong></span></p>
 </body>
 </html>
