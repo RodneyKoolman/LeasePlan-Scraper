@@ -22,8 +22,9 @@ scraper_webservice_host = '0.0.0.0'
 scraper_webservice_port = 80
 scraper_domain = 'https://www.leaseplan.com'
 scraper_start_url = 'https://www.leaseplan.com/nl-nl/zakelijk-leasen/showroom/{}/?leaseOption[mileage]={}&leaseOption[contractDuration]={}&popularFilters=b3eb0313-9583-427d-9db2-782f29f83afb&makemodel={}'.format(leaseplan_brand, leaseplan_mileage, leaseplan_duration, leaseplan_model)
-scraper_last_run = 'never'
-scraper_last_error = 'never'
+scraper_last_run = '00:00:00'
+scraper_last_error = '00:00:00'
+scraper_last_error_message = 'none'
 scraper_last_new_car = 'none'
 scraper_last_new_link = 'none'
 scraper_run_count = 0
@@ -37,10 +38,10 @@ def webserver_start():
 
 @scraper_webserver.route('/')
 def index():
-    return render_template('index.html', lastrun=scraper_last_run, lasterror=scraper_last_error, runcounter=scraper_run_count, errorcounter=scraper_error_count, vehiclesinmemory=len(scraper_processed_cars) , lastaddedvehicle=scraper_last_new_car, mailssent=scraper_mails_send, checkevery=scraper_check_every, servertime=datetime.now().strftime('%H:%M:%S'), lastaddedvehiclelink=scraper_last_new_link, vehiclebrand=leaseplan_brand, vehiclemodel=leaseplan_model, vehicleduration=leaseplan_duration, vehiclemileage=leaseplan_mileage, mailenabled=scraper_mail_enabled)
+    return render_template('index.html', lastrun=scraper_last_run, lasterror=scraper_last_error, runcounter=scraper_run_count, errorcounter=scraper_error_count, vehiclesinmemory=len(scraper_processed_cars) , lastaddedvehicle=scraper_last_new_car, mailssent=scraper_mails_send, checkevery=scraper_check_every, servertime=datetime.now().strftime('%H:%M:%S'), lastaddedvehiclelink=scraper_last_new_link, vehiclebrand=leaseplan_brand, vehiclemodel=leaseplan_model, vehicleduration=leaseplan_duration, vehiclemileage=leaseplan_mileage, mailenabled=scraper_mail_enabled, firstrun=scraper_first_run, errormessage=scraper_last_error_message)
     
 def send_mail(current_car, current_car_link):
-    global scraper_last_error, scraper_error_count, scraper_mails_send
+    global scraper_last_error, scraper_error_count, scraper_last_error_message, scraper_mails_send
 
     message = Mail(
     from_email=scraper_mail_from,
@@ -55,6 +56,7 @@ def send_mail(current_car, current_car_link):
 
     except Exception as e:
         scraper_last_error = datetime.now().strftime('%H:%M:%S')
+        scraper_last_error_message = e
         scraper_error_count += 1
         print('Error {}. Retrying mail soon'.format(e))
         time.sleep(10)
@@ -67,7 +69,7 @@ def parse(page):
     return parsed_page
 
 def main():
-    global scraper_run_count, scraper_last_run, scraper_last_error, scraper_error_count, scraper_last_new_car, scraper_last_new_link, scraper_first_run
+    global scraper_run_count, scraper_last_run, scraper_last_error, scraper_error_count, scraper_last_error_message, scraper_last_new_car, scraper_last_new_link, scraper_first_run
 
     while True:
         try:
@@ -101,8 +103,9 @@ def main():
             print('Done scraping. Processed vehicles are {}'.format(scraper_processed_cars))
 
         except Exception as e:
-            scraper_error_count += 1
             scraper_last_error = datetime.now().strftime('%H:%M:%S')
+            scraper_last_error_message = e
+            scraper_error_count += 1
             
             print('Error {}. Stopped scraping, retrying soon'.format(e))
             time.sleep(10)
