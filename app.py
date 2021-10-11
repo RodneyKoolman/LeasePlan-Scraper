@@ -59,7 +59,7 @@ def send_mail(current_car, current_car_link):
         scraper_last_error_message = e
         scraper_error_count += 1
         print('Error {}. Retrying mail soon'.format(e))
-        time.sleep(10)
+        time.sleep(15)
         send_mail(current_car, current_car_link)
 
 def parse(page):
