@@ -34,7 +34,7 @@ scraper_first_run = True
 scraper_webserver = Flask(__name__)
 
 def webserver_start():
-     scraper_webserver.run(host=scraper_webservice_host, port=scraper_webservice_port, debug=False, use_reloader=False)
+    scraper_webserver.run(host=scraper_webservice_host, port=scraper_webservice_port, debug=False, use_reloader=False)
 
 @scraper_webserver.route('/')
 def index():
@@ -59,14 +59,12 @@ def send_mail(current_car, current_car_link):
         scraper_last_error_message = e
         scraper_error_count += 1
         print('Error {}. Retrying mail soon'.format(e))
-        time.sleep(10)
+        time.sleep(5)
         send_mail(current_car, current_car_link)
 
 def parse(page):
     page = requests.get(page, timeout=5)
-    parsed_page = BeautifulSoup(page.content, 'html.parser')
-
-    return parsed_page
+    return BeautifulSoup(page.content, 'html.parser')
 
 def main():
     global scraper_run_count, scraper_last_run, scraper_last_error, scraper_error_count, scraper_last_error_message, scraper_last_new_car, scraper_last_new_link, scraper_first_run
@@ -106,10 +104,8 @@ def main():
             scraper_last_error = datetime.now().strftime('%H:%M:%S')
             scraper_last_error_message = e
             scraper_error_count += 1
-            
             print('Error {}. Stopped scraping, retrying soon'.format(e))
-            time.sleep(10)
-            pass
+            time.sleep(5)
 
         print('Waiting {} seconds for next scrape'.format(scraper_check_every))
         time.sleep(scraper_check_every)
