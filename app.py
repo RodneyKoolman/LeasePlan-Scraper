@@ -64,7 +64,6 @@ def send_mail(current_car, current_car_link):
 
 def parse(page):
     page = requests.get(page, timeout=5)
-
     return BeautifulSoup(page.content, 'html.parser')
 
 def main():
