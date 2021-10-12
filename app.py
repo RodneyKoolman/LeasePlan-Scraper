@@ -64,9 +64,8 @@ def send_mail(current_car, current_car_link):
 
 def parse(page):
     page = requests.get(page, timeout=5)
-    parsed_page = BeautifulSoup(page.content, 'html.parser')
 
-    return parsed_page
+    return BeautifulSoup(page.content, 'html.parser')
 
 def main():
     global scraper_run_count, scraper_last_run, scraper_last_error, scraper_error_count, scraper_last_error_message, scraper_last_new_car, scraper_last_new_link, scraper_first_run
