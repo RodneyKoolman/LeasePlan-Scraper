@@ -13,7 +13,7 @@ It has a webservice where you can check the status of the scraper and it can als
 - **Note:** currently it uses a Dutch url-format which you need to change if you are from another country
 
 **TODO**:
-- ~~Better style the dashboard webservice~~
+- ~~Style the dashboard webservice~~
 - Follow car link and scrape car details
 - Remove hardcoded dutch url parts
 - Support https/certificate for Flask
