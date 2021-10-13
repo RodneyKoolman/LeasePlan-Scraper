@@ -7,8 +7,6 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 leaseplan_brand = 'tesla'
-leaseplan_mileage = 10000
-leaseplan_duration = 60
 leaseplan_model = 'model-3'
 scraper_processed_cars = []
 scraper_follow_cars = False
@@ -21,7 +19,7 @@ scraper_sendgrid_apikey = settings.your_api_key
 scraper_webservice_host = '0.0.0.0'
 scraper_webservice_port = 80
 scraper_domain = 'https://www.leaseplan.com'
-scraper_start_url = 'https://www.leaseplan.com/nl-nl/zakelijk-leasen/showroom/{}/?leaseOption[mileage]={}&leaseOption[contractDuration]={}&popularFilters=b3eb0313-9583-427d-9db2-782f29f83afb&makemodel={}'.format(leaseplan_brand, leaseplan_mileage, leaseplan_duration, leaseplan_model)
+scraper_start_url = 'https://www.leaseplan.com/nl-nl/zakelijk-leasen/showroom/{}/{}/?popularFilters=b3eb0313-9583-427d-9db2-782f29f83afb'.format(leaseplan_brand, leaseplan_model)
 scraper_last_run = '00:00:00'
 scraper_last_error = '00:00:00'
 scraper_last_error_message = 'none'
