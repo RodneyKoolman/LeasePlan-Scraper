@@ -34,13 +34,33 @@ The best method is to go to leaseplan.com, search for a vehicle with the desired
 
 leaseplan_search_brand = 'tesla' -> Set this to any vehicle brand  
 leaseplan_search_model = 'model-3' -> Set this to any vehicle model  
-leaseplan_search_filters = 'b3eb0313-9583-427d-9db2-782f29f83afb' -> Set this to any filter  
+leaseplan_search_filters = 'b3eb0313-9583-427d-9db2-782f29f83afb' -> Set this to any leaseplan filter  
 leaseplan_search_textfilter = 'Model 3' -> If leaseplan_search_model doesn't work, use this  
-leaseplan_contract_mileage = 10000 -> Set this to any vehicle model you want to scrape  
-leaseplan_contract_duration = 60  
+leaseplan_contract_mileage = 10000 -> Set this to any contract mileage  
+leaseplan_contract_duration = 60 -> Set this to any contract duration  
 
-- **scraper_webservice_enabled** = True (enables dashboard and statistics)
-- **scraper_mail_enabled** = True (enables mail notifications)
+scraper_processed_vehicles = [] -> Do not edit this  
+scraper_webservice_enabled = True -> Enable or disable the webservice  
+scraper_webservice_host = '0.0.0.0' -> Change the host address  
+scraper_webservice_port = 80 -> Change the host port  
+scraper_mail_enabled = True -> Enable or disable mail notifications  
+scraper_check_every = 60 -> Set the interval in seconds at which the scraper is checking leaseplan  
+scraper_follow_vehicles = False -> Experimental, do not use this yet  
+scraper_sendgrid_apikey = '[change_this]' -> Sendgrid settings for mail notifications  
+scraper_sendgrid_from = '[change_this]' -> Sendgrid settings for mail notifications  
+scraper_sendgrid_to = '[change_this]' -> Sendgrid settings for mail notifications  
+scraper_base_domain = 'https://www.leaseplan.com' -> Domain url, edit only if you know what you are doing  
+scraper_start_url = f'{scraper_base_domain}/nl-nl/zakelijk-leasen/showroom/{leaseplan_search_brand}/?leaseOption[mileage]={leaseplan_contract_mileage}&leaseOption[contractDuration]={leaseplan_contract_duration}&popularFilters={leaseplan_search_filters}&makemodel={leaseplan_search_model}' -> Start search url, edit only if you know what you are doing  
+scraper_last_run_time = '00:00:00' -> Do not edit this  
+scraper_last_error_time = '00:00:00' -> Do not edit this  
+scraper_last_error_message = 'none' -> Do not edit this  
+scraper_last_vehicle = 'none' -> Do not edit this  
+scraper_last_vehiclelink = 'none' -> Do not edit this  
+scraper_total_run_count = 0 -> Do not edit this  
+scraper_total_error_count = 0 -> Do not edit this  
+scraper_total_mails_sent = 0 -> Do not edit this  
+scraper_first_run = True -> Edit this only if you want mail notifications to be send on first run
+scraper_webserver = Flask(__name__) -> Do not edit this  
 
 1. Adjust the script properties at the top
 2. Setup and configure your environment (Python 3.6+ required)
