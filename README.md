@@ -27,9 +27,6 @@ It has a webservice where you can check the status of the scraper and it can als
 This app uses SendGrid for mail notifications when vehicles become available. SendGrid can be used for free but you need to create an API key.
 Make sure to change the scraper_sendgrid_apikey, scraper_sendgrid_from and scraper_sendgrid_to to reflect your SendGrid settings.
 
-**Note:** LeasePlan sometimes seems to ignore deeper filters  
-**Note:** If you make filters empty '', they are ignored  
-
 **The best method is to go to leaseplan.com, search for vehicles with the desired filters. Look at the url and paste those values in the app.py settings section.**
 
 | LeasePlan settings | Description |
@@ -40,8 +37,9 @@ Make sure to change the scraper_sendgrid_apikey, scraper_sendgrid_from and scrap
 | leaseplan_search_textfilter = 'Model 3' | If leaseplan_search_model doesn't work, use this |
 | leaseplan_contract_mileage = 10000 | Set this to any contract mileage |
 | leaseplan_contract_duration = 60 | Set this to any contract duration |
-  
 
+**Note:** LeasePlan sometimes seems to ignore deeper filters  
+**Note:** If you make filters empty '', they are ignored  
 
 | Scraper settings | Description |
 | --- | --- |
