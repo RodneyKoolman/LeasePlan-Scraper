@@ -7,6 +7,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 # LeasePlan settings
+# Note: LeasePlan sometimes seems to ignore deeper filters
 leaseplan_search_brand = 'tesla'
 leaseplan_search_model = 'model-3'
 leaseplan_search_filters = 'b3eb0313-9583-427d-9db2-782f29f83afb'
@@ -67,8 +68,8 @@ def mail(current_vehicle, current_vehiclelink):
     html_content = f'New <strong>{leaseplan_search_brand}</strong> available with id <a href={scraper_base_domain+current_vehiclelink}><strong>{current_vehicle}</strong></a>.')
 
     try:
-        sendgrid = SendGridAPIClient(scraper_sendgrid_apikey)
-        sendgrid.send(message)
+        #sendgrid = SendGridAPIClient(scraper_sendgrid_apikey)
+        #sendgrid.send(message)
         scraper_total_mails_sent += 1
 
     except Exception as ex:
