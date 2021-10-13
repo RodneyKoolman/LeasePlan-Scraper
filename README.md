@@ -36,7 +36,7 @@ Make sure to change the scraper_sendgrid_apikey, scraper_sendgrid_from and scrap
 | --- | --- |
 | leaseplan_search_brand = 'tesla' | Set this to any vehicle brand |
 | leaseplan_search_model = 'model-3' | Set this to any vehicle model |
-| leaseplan_search_filters = 'b3eb0313-9583-427d-9db2-782f29f83afb' | Set this to any leaseplan filter |
+| leaseplan_search_filters = 'b3eb0313' | Set this to any leaseplan filter |
 | leaseplan_search_textfilter = 'Model 3' | If leaseplan_search_model doesn't work, use this |
 | leaseplan_contract_mileage = 10000 | Set this to any contract mileage |
 | leaseplan_contract_duration = 60 | Set this to any contract duration |
@@ -57,7 +57,7 @@ Make sure to change the scraper_sendgrid_apikey, scraper_sendgrid_from and scrap
 | scraper_sendgrid_from = '[change_this]' | Sendgrid settings for mail notifications |
 | scraper_sendgrid_to = '[change_this]' | Sendgrid settings for mail notifications |
 | scraper_base_domain = 'https://www.leaseplan.com' | Domain url, edit only if you know what you are doing |
-| scraper_start_url = f'{scraper_base_domain}/nl-nl/zakelijk-leasen...' | Start search url, edit only if you know what you are doing |
+| scraper_start_url = f'{scraper_base_domain}/nl-nl/zakelijk-leasen' | Start search url, edit only if you know what you are doing |
 | scraper_last_run_time = '00:00:00' | Do not edit this |
 | scraper_last_error_time = '00:00:00' | Do not edit this |
 | scraper_last_error_message = 'none' | Do not edit this |
