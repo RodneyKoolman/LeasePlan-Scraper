@@ -33,13 +33,16 @@ Make sure to change the scraper_sendgrid_apikey, scraper_sendgrid_from and scrap
 **The best method is to go to leaseplan.com, search for vehicles with the desired filters. Look at the url and paste those values in the app.py settings section.**
 
 | LeasePlan settings | Description |
+| --- | --- |
 | leaseplan_search_brand = 'tesla' | Set this to any vehicle brand |
 | leaseplan_search_model = 'model-3' | Set this to any vehicle model |
 | leaseplan_search_filters = 'b3eb0313-9583-427d-9db2-782f29f83afb' | Set this to any leaseplan filter |
 | leaseplan_search_textfilter = 'Model 3' | If leaseplan_search_model doesn't work, use this |
 | leaseplan_contract_mileage = 10000 | Set this to any contract mileage |
 | leaseplan_contract_duration = 60 | Set this to any contract duration |
+| --- | --- |
 | Scraper settings | Description |
+| --- | --- |
 | scraper_first_run = True | Edit this only if you want mail notifications to be send on first run |
 scraper_webservice_enabled = True -> Enable or disable the webservice  
 scraper_webservice_host = '0.0.0.0' -> Change the host address  
