@@ -11,6 +11,7 @@ from sendgrid.helpers.mail import Mail
 leaseplan_search_brand = 'tesla'
 leaseplan_search_model = 'model-3'
 leaseplan_search_filters = 'b3eb0313-9583-427d-9db2-782f29f83afb'
+leaseplan_search_textfilter = 'Model 3'
 leaseplan_contract_mileage = 10000
 leaseplan_contract_duration = 60
 
@@ -87,9 +88,10 @@ def main():
             for vehicle in vehicles:
                 current_vehicle = vehicle['data-key']
                 current_vehiclelink = vehicle.find("a")['data-e2e-id']
+                current_vehiclename = vehicle.find("h2").text
 
-                if current_vehicle not in scraper_processed_vehicles:                    
-                    
+                if (current_vehicle not in scraper_processed_vehicles and leaseplan_search_textfilter in current_vehiclename):
+
                     #Experimental - Not functional yet, set scraper_follow_vehicles to false
                     if(scraper_follow_vehicles):
                         page = parse(scraper_base_domain + current_vehiclelink)
@@ -112,7 +114,6 @@ def main():
 
         except Exception as ex:
             error(ex)
-
         print(f'Waiting {scraper_check_every} seconds for next scrape')
         time.sleep(scraper_check_every)
 
