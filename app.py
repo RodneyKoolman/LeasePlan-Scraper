@@ -68,8 +68,8 @@ def mail(current_vehicle, current_vehiclelink):
     html_content = f'New <strong>{leaseplan_search_brand}</strong> available with id <a href={scraper_base_domain+current_vehiclelink}><strong>{current_vehicle}</strong></a>.')
 
     try:
-        #sendgrid = SendGridAPIClient(scraper_sendgrid_apikey)
-        #sendgrid.send(message)
+        sendgrid = SendGridAPIClient(scraper_sendgrid_apikey)
+        sendgrid.send(message)
         scraper_total_mails_sent += 1
 
     except Exception as ex:
