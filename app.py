@@ -22,9 +22,9 @@ scraper_webservice_port = 80
 scraper_mail_enabled = True
 scraper_check_every = 60
 scraper_follow_vehicles = False # Experimental
-scraper_sendgrid_apikey = "[change_this]"
-scraper_sendgrid_from = "[change_this]"
-scraper_sendgrid_to = "[change_this]"
+scraper_sendgrid_apikey = '[change_this]'
+scraper_sendgrid_from = '[change_this]'
+scraper_sendgrid_to = '[change_this]'
 scraper_base_domain = 'https://www.leaseplan.com'
 scraper_start_url = f'{scraper_base_domain}/nl-nl/zakelijk-leasen/showroom/{leaseplan_search_brand}/?leaseOption[mileage]={leaseplan_contract_mileage}&leaseOption[contractDuration]={leaseplan_contract_duration}&popularFilters={leaseplan_search_filters}&makemodel={leaseplan_search_model}'
 scraper_last_run_time = '00:00:00'
