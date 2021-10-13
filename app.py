@@ -108,12 +108,12 @@ def main():
             scraper_total_run_count += 1
             scraper_last_run_time = datetime.now().strftime('%H:%M:%S')
 
-            print('Done scraping. Processed vehicles are {}'.format(scraper_processed_vehicles))
+            print(f'Done scraping. Processed vehicles are {scraper_processed_vehicles}')
 
         except Exception as ex:
             error(ex)
 
-        print('Waiting {} seconds for next scrape'.format(scraper_check_every))
+        print(f'Waiting {scraper_check_every} seconds for next scrape')
         time.sleep(scraper_check_every)
 
 if __name__ == "__main__":
@@ -121,5 +121,5 @@ if __name__ == "__main__":
         if(scraper_webservice_enabled):
             Thread(target=webserver_start).start()
         main()
-    except Exception as e:
-        print('Unexpected error {}. App cannot start.'.format(e))
+    except Exception as ex:
+        print(f'Unexpected error {ex}. Application cannot start.')
