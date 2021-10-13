@@ -16,7 +16,7 @@ leaseplan_contract_mileage = 10000
 leaseplan_contract_duration = 60
 
 # Scraper settings
-scraper_processed_vehicles = []
+scraper_first_run = True
 scraper_webservice_enabled = True
 scraper_webservice_host = '0.0.0.0'
 scraper_webservice_port = 80
@@ -36,7 +36,7 @@ scraper_last_vehiclelink = 'none'
 scraper_total_run_count = 0
 scraper_total_error_count = 0
 scraper_total_mails_sent = 0
-scraper_first_run = True
+scraper_processed_vehicles = []
 scraper_webserver = Flask(__name__)
 
 def webserver_start():
