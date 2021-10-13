@@ -39,7 +39,7 @@ Make sure to change the scraper_sendgrid_apikey, scraper_sendgrid_from and scrap
 | leaseplan_contract_duration = 60 | Set this to any contract duration |
 
 **Note:** LeasePlan sometimes seems to ignore deeper filters  
-**Note:** If you make filters empty '', they are ignored  
+**Tip:** If you make filters empty '', they are ignored  
 
 | Scraper settings | Description |
 | --- | --- |
