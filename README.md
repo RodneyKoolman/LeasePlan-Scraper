@@ -39,7 +39,7 @@ leaseplan_search_textfilter = 'Model 3' -> If leaseplan_search_model doesn't wor
 leaseplan_contract_mileage = 10000 -> Set this to any contract mileage  
 leaseplan_contract_duration = 60 -> Set this to any contract duration  
 
-scraper_processed_vehicles = [] -> Do not edit this  
+scraper_first_run = True -> Edit this only if you want mail notifications to be send on first run  
 scraper_webservice_enabled = True -> Enable or disable the webservice  
 scraper_webservice_host = '0.0.0.0' -> Change the host address  
 scraper_webservice_port = 80 -> Change the host port  
@@ -59,7 +59,7 @@ scraper_last_vehiclelink = 'none' -> Do not edit this
 scraper_total_run_count = 0 -> Do not edit this  
 scraper_total_error_count = 0 -> Do not edit this  
 scraper_total_mails_sent = 0 -> Do not edit this  
-scraper_first_run = True -> Edit this only if you want mail notifications to be send on first run
+scraper_processed_vehicles = [] -> Do not edit this  
 scraper_webserver = Flask(__name__) -> Do not edit this  
 
 1. Adjust the script properties at the top
