@@ -30,7 +30,7 @@ Make sure to change the scraper_sendgrid_apikey, scraper_sendgrid_from and scrap
 **Note:** LeasePlan sometimes seems to ignore deeper filters  
 **Note:** If you make filters empty '', they are ignored  
 
-The best method is to go to leaseplan.com, search for vehicles with the desired filters. Look at the url and paste those values in the settings in app.py.
+**The best method is to go to leaseplan.com, search for vehicles with the desired filters. Look at the url and paste those values in the settings in app.py.**
 
 leaseplan_search_brand = 'tesla' -> Set this to any vehicle brand  
 leaseplan_search_model = 'model-3' -> Set this to any vehicle model  
