@@ -31,7 +31,7 @@ Make sure to change the settings.your_from_mail, settings.your_to_mail and setti
 - **scraper_mail_enabled** = True (enables mail notifications)
 
 1. Adjust the script properties at the top
-2. Setup and configure your environment (Python 3.8+)
+2. Setup and configure your environment (Python 3.6+ required)
 3. Install the required modules in requirements.txt (pip3 install -r requirements.txt)
 4. Run app.py (Tip: if you are using a standalone server, use PM2 to manage running python scripts)
 6. Enjoy!
