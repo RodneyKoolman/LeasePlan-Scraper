@@ -57,7 +57,7 @@ Make sure to change the scraper_sendgrid_apikey, scraper_sendgrid_from and scrap
 | scraper_sendgrid_from = '[change_this]' | Sendgrid settings for mail notifications |
 | scraper_sendgrid_to = '[change_this]' | Sendgrid settings for mail notifications |
 | scraper_base_domain = 'https://www.leaseplan.com' | Domain url, edit only if you know what you are doing |
-| scraper_start_url = f'{scraper_base_domain}/nl-nl/zakelijk-leasen  /showroom/{leaseplan_search_brand}/?leaseOption[mileage]={leaseplan_contract_mileage}  &leaseOption[contractDuration]={leaseplan_contract_duration}  &popularFilters={leaseplan_search_filters}&makemodel={leaseplan_search_model}' | Start search url, edit only if you know what you are doing |
+| scraper_start_url = f'{scraper_base_domain}/nl-nl/zakelijk-leasen...' | Start search url, edit only if you know what you are doing |
 | scraper_last_run_time = '00:00:00' | Do not edit this |
 | scraper_last_error_time = '00:00:00' | Do not edit this |
 | scraper_last_error_message = 'none' | Do not edit this |
