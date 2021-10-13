@@ -25,11 +25,11 @@ It has a webservice where you can check the status of the scraper and it can als
 ## Usage
 
 This app uses SendGrid for mail notifications when cars become available. SendGrid can be used for free but you need to create an API key.
-Make sure to change the settings.your_from_mail, settings.your_to_mail and settings.your_api_key to reflect your SendGrid settings.
+Make sure to change the scraper_sendgrid_apikey, scraper_sendgrid_from and scraper_sendgrid_to to reflect your SendGrid settings.
 
-**LeasePlan filter settings**  
 **Note:** LeasePlan sometimes seems to ignore deeper filters  
 **Note:** If you make filters empty '', they are ignored  
+
 The best method is to go to leaseplan.com, search for a vehicle with the desired filters. Look at the url and paste those values in the settings.
 
 leaseplan_search_brand = 'tesla' -> Set this to any vehicle brand  
