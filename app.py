@@ -21,6 +21,7 @@ scraper_webservice_enabled = True
 scraper_webservice_host = '0.0.0.0'
 scraper_webservice_port = 80
 scraper_mail_enabled = True
+scraper_parse_timeout = 5
 scraper_check_pause = 60
 scraper_error_pause = 5
 scraper_add_pause = 2
@@ -49,7 +50,7 @@ def index():
     return render_template('index.html', lastrun=scraper_last_run_time, lasterror=scraper_last_error_time, runcounter=scraper_total_run_count, errorcounter=scraper_total_error_count, vehiclesinmemory=len(scraper_processed_vehicles) , lastaddedvehicle=scraper_last_vehicle, mailssent=scraper_total_mails_sent, checkevery=scraper_check_pause, servertime=datetime.now().strftime('%H:%M:%S'), lastaddedvehiclelink=scraper_last_vehiclelink, vehiclebrand=leaseplan_search_brand, vehiclemodel=leaseplan_search_model, vehicleduration=leaseplan_contract_duration, vehiclemileage=leaseplan_contract_mileage, mailenabled=scraper_mail_enabled, firstrun=scraper_first_run, errormessage=scraper_last_error_message)
 
 def parse(page):
-    page = requests.get(page, timeout=5)
+    page = requests.get(page, timeout=scraper_parse_timeout)
     return BeautifulSoup(page.content, 'html.parser')
 
 def error(ex):
