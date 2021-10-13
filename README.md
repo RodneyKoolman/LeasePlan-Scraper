@@ -32,12 +32,12 @@ Make sure to change the settings.your_from_mail, settings.your_to_mail and setti
 **Note:** If you make filters empty '', they are ignored  
 The best method is to go to leaseplan.com, search for a vehicle with the desired filters. Look at the url and paste those values in the settings.
 
-- leaseplan_search_brand = 'tesla' -> Set this to any vehicle brand
-- leaseplan_search_model = 'model-3' -> Set this to any vehicle model
-- leaseplan_search_filters = 'b3eb0313-9583-427d-9db2-782f29f83afb' -> Set this to any filter
-- leaseplan_search_textfilter = 'Model 3' -> If leaseplan_search_model doesn't work, use this
-- leaseplan_contract_mileage = 10000 -> Set this to any vehicle model you want to scrape
-- leaseplan_contract_duration = 60
+leaseplan_search_brand = 'tesla' -> Set this to any vehicle brand  
+leaseplan_search_model = 'model-3' -> Set this to any vehicle model  
+leaseplan_search_filters = 'b3eb0313-9583-427d-9db2-782f29f83afb' -> Set this to any filter  
+leaseplan_search_textfilter = 'Model 3' -> If leaseplan_search_model doesn't work, use this  
+leaseplan_contract_mileage = 10000 -> Set this to any vehicle model you want to scrape  
+leaseplan_contract_duration = 60  
 
 - **scraper_webservice_enabled** = True (enables dashboard and statistics)
 - **scraper_mail_enabled** = True (enables mail notifications)
