@@ -1,12 +1,12 @@
 # LeasePlan - Scraper
 
-This app will let you continuously scrape certain parts of LeasePlan and extract data of cars becoming available for lease.
-It has a webservice where you can check the status of the scraper and it can also notify you via mail when a car is available.
+This app will let you continuously scrape certain parts of LeasePlan and extract data of vehicles becoming available for lease.
+It has a webservice where you can check the status of the scraper and it can also notify you via mail when a vehicle is available.
 
 - Scrapes certain url with modifiable filter
-- Gets all current cars and adds them in-memory
-- Sends notification if a new car is available
-- Ignores already processed cars
+- Gets all current vehicles and adds them in-memory
+- Sends notification if a new vehicle is available
+- Ignores already processed vehicles
 - Robust Exception-Handling
 - Web dashboard with statistics
 - Mail notifications are disabled on first run (change scraper_first_run to False if you don't want this behavior)
@@ -14,7 +14,7 @@ It has a webservice where you can check the status of the scraper and it can als
 
 **TODO**:
 - ~~Style the dashboard webservice~~
-- Follow car link and scrape car details
+- Follow vehicle link and scrape vehicle details
 - Remove hardcoded dutch url parts
 - Support https/certificate for Flask
 
@@ -24,7 +24,7 @@ It has a webservice where you can check the status of the scraper and it can als
 
 ## Usage
 
-This app uses SendGrid for mail notifications when cars become available. SendGrid can be used for free but you need to create an API key.
+This app uses SendGrid for mail notifications when vehicles become available. SendGrid can be used for free but you need to create an API key.
 Make sure to change the scraper_sendgrid_apikey, scraper_sendgrid_from and scraper_sendgrid_to to reflect your SendGrid settings.
 
 **Note:** LeasePlan sometimes seems to ignore deeper filters  
