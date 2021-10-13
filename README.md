@@ -40,8 +40,8 @@ Make sure to change the scraper_sendgrid_apikey, scraper_sendgrid_from and scrap
 | leaseplan_search_textfilter = 'Model 3' | If leaseplan_search_model doesn't work, use this |
 | leaseplan_contract_mileage = 10000 | Set this to any contract mileage |
 | leaseplan_contract_duration = 60 | Set this to any contract duration |
-  
-  
+\
+\
 | Scraper settings | Description |
 | --- | --- |
 | scraper_first_run = True | Edit this only if you want mail notifications to be send on first run |
