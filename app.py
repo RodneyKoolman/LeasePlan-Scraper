@@ -7,7 +7,6 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 # LeasePlan settings
-# Note: LeasePlan sometimes seems to ignore deeper filters
 leaseplan_search_brand = 'tesla'
 leaseplan_search_model = 'model-3'
 leaseplan_search_filters = 'b3eb0313-9583-427d-9db2-782f29f83afb'
