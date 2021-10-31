@@ -1,4 +1,4 @@
-sendgrid
-bs4
-requests
-flask
+sendgrid==6.8.3
+bs4==0.0.1
+requests==2.26.0
+flask==2.0.2
